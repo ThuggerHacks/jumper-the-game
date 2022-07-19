@@ -78,20 +78,23 @@ const doneLost = () => {
     }
     
 
+    if(audio.ended){
+        audio.play();
+    }
     if(score%2 == 0 && vel > 0){
         vel-=0.1;
     }
-    if(score >= 10 && score < 20) {
+    if((score >= 10 && score < 20) || (score >=60 && score < 90)) {
         scene.classList.add("scene-night")
         scene.classList.remove("scene-rain")
         scene.classList.remove("scene-sun")
         pipe.style.animationDelay = vel +"s";
-    }else if(score >= 20 && score < 30){
+    }else if((score >= 20 && score < 30) || (score >=90 && score < 120)){
         scene.classList.add("scene-rain")
         scene.classList.remove("scene-night")
         scene.classList.remove("scene-sun")
         pipe.style.animationDelay = vel +"s";
-    }else if(score >= 30 && score < 50){
+    }else if((score >= 30 && score < 50) || (score >=120 && score < 150)){
         scene.classList.add("scene-sun")
         scene.classList.remove("scene-rain")
         scene.classList.remove("scene-night")
